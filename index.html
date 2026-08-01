@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UREYZ — Discover the Rest.</title>
+<meta name="description" content="UREYZ is community-powered interactive social discovery entertainment. Dream Chests, live showcases, and real connections — one membership, every city.">
+<meta name="theme-color" content="#0B1D3A">
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="UREYZ">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= LOADER ================= -->
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot-mark">
+    <img src="assets/shield.png" alt="" class="boot-shield">
+    <div class="boot-spark"></div>
+  </div>
+  <div class="boot-word">UREYZ</div>
+  <div class="boot-line">DISCOVER THE REST…</div>
+</div>
+
+<!-- ================= TOP NAV ================= -->
+<header class="topnav" id="topnav">
+  <a href="#top" class="brand">
+    <img src="assets/shield.png" alt="UREYZ" class="brand-mark">
+    <span class="brand-word">UREYZ<sup>™</sup></span>
+  </a>
+  <nav class="topnav-links">
+    <a href="#ecosystem">Ecosystem</a>
+    <a href="#chests">Dream Chests</a>
+    <a href="#tiers">Membership</a>
+    <a href="#journey">Journey</a>
+    <a href="#gallery">Inside UREYZ</a>
+  </nav>
+  <button class="btn btn-ghost install-btn" id="installBtn" hidden>
+    <span>Install App</span>
+  </button>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="drawer">
+  <a href="#ecosystem">Ecosystem</a>
+  <a href="#chests">Dream Chests</a>
+  <a href="#tiers">Membership</a>
+  <a href="#journey">Journey</a>
+  <a href="#gallery">Inside UREYZ</a>
+  <button class="btn btn-gold" id="drawerInstall">Install App</button>
+</div>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="assets/hero-crowd.jpg" alt="Crowd at a UREYZ live showcase event" loading="eager">
+      <div class="hero-scrim"></div>
+      <div class="hero-vignette"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="eyebrow eyebrow-hero"><span class="dot"></span>Community-Powered Interactive Social Discovery</p>
+      <h1 class="hero-title">
+        <span class="line">DISCOVER</span>
+        <span class="line line-accent">THE REST<span class="ellipsis">…</span></span>
+      </h1>
+      <p class="hero-sub">Twenty years of swiping got people good at meeting online — and worse at discovering each other in real life. UREYZ turns curiosity into a live, three‑act experience where the whole room plays.</p>
+      <div class="hero-cta">
+        <a href="#chests" class="btn btn-gold btn-lg">
+          <span>Open a Dream Chest</span>
+        </a>
+        <button class="btn btn-outline btn-lg" id="heroInstallBtn">
+          <span>Install the App</span>
+        </button>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-num" data-count="11">0</span><span class="hstat-label">Dream Chests</span></div>
+        <div class="hstat"><span class="hstat-num" data-count="5">0</span><span class="hstat-label">Industries Converged</span></div>
+        <div class="hstat"><span class="hstat-num" data-count="40">0</span><span class="hstat-label">Cities on the Roadmap</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Scroll to enter</span>
+      <div class="scroll-cue-line"></div>
+    </div>
+  </section>
+
+  <!-- ================= THE SHIFT / PROBLEM ================= -->
+  <section class="shift" id="shift">
+    <div class="section-inner shift-grid">
+      <div class="shift-visual">
+        <div class="phone-mock">
+          <div class="phone-notch"></div>
+          <div class="swipe-card swipe-card-back">
+            <div class="swipe-face"></div>
+          </div>
+          <div class="swipe-card swipe-card-front" id="swipeCard">
+            <div class="swipe-face"></div>
+            <div class="swipe-choice swipe-x">✕</div>
+            <div class="swipe-choice swipe-heart">♥</div>
+          </div>
+          <div class="swipe-caption">Judged in 0.3 seconds. Forgotten in three.</div>
+        </div>
+      </div>
+      <div class="shift-copy">
+        <p class="eyebrow">The Shift</p>
+        <h2 class="h2">Good at meeting.<br>Bad at discovering.</h2>
+        <p class="lead">For more than twenty years, online dating has changed how people meet. Yet most platforms still run on immediate visual judgment, limited interaction, and digital engagement that rarely evolves into anything real.</p>
+        <p class="callout">People have become exceptionally good at meeting online.<br><strong>They've become far less successful at discovering one another.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= THE CATEGORY / OPPORTUNITY ================= -->
+  <section class="category" id="ecosystem">
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-center">The Category</p>
+      <h2 class="h2 h2-center">UREYZ isn't competing in one lane.<br>It's building the intersection of five.</h2>
+
+      <div class="orbit-wrap">
+        <div class="orbit-core">
+          <img src="assets/shield.png" alt="">
+        </div>
+        <div class="orbit-ring"></div>
+        <ul class="orbit-list">
+          <li class="orbit-item oi-1"><span class="orbit-ico">💜</span><span>Online Dating</span></li>
+          <li class="orbit-item oi-2"><span class="orbit-ico">✦</span><span>Live Entertainment</span></li>
+          <li class="orbit-item oi-3"><span class="orbit-ico">☆</span><span>Nightlife</span></li>
+          <li class="orbit-item oi-4"><span class="orbit-ico">▲</span><span>Creator Economy</span></li>
+          <li class="orbit-item oi-5"><span class="orbit-ico">✧</span><span>Experience Market</span></li>
+        </ul>
+      </div>
+
+      <p class="category-tag">COMMUNITY‑POWERED INTERACTIVE SOCIAL DISCOVERY ENTERTAINMENT<span class="tm">™</span></p>
+    </div>
+  </section>
+
+  <!-- ================= THREE ACT EXPERIENCE ================= -->
+  <section class="acts" id="acts">
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-center">The Experience</p>
+      <h2 class="h2 h2-center">One night. Three acts.</h2>
+      <p class="lead lead-center">Curiosity opens the show. Connection closes it. The room plays the whole way through.</p>
+
+      <div class="act-track">
+        <div class="act-progress"><div class="act-progress-fill" id="actProgress"></div></div>
+
+        <article class="act-card" data-act="1">
+          <div class="act-media"><img src="assets/showcase-panel.jpg" alt="Hosts and community members on the UREYZ Showcase stage" loading="lazy"></div>
+          <div class="act-body">
+            <span class="act-num">I</span>
+            <h3>The UREYZ Showcase</h3>
+            <p>The community selects the talent. Members vote online. Winning acts perform live, in front of the room they'll spend the night with.</p>
+          </div>
+        </article>
+
+        <article class="act-card" data-act="2">
+          <div class="act-media"><img src="assets/dream-chests.jpg" alt="Guests submitting Dream Cards at the Dream Chest wall" loading="lazy"></div>
+          <div class="act-body">
+            <span class="act-num">II</span>
+            <h3>The Discovery Experience</h3>
+            <p>Dream Chest. Discovery Challenge. The Reveal. Audience participation turns strangers into stories — this is where real connection starts.</p>
+          </div>
+        </article>
+
+        <article class="act-card" data-act="3">
+          <div class="act-media"><img src="assets/sunset-crowd.jpg" alt="Crowd at the UREYZ after-party" loading="lazy"></div>
+          <div class="act-body">
+            <span class="act-num">III</span>
+            <h3>Continue the Discovery</h3>
+            <p>Exclusive after-party. UREYZ wristbands. The night doesn't end when the lights come up — it becomes the beginning.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="act-flow">
+        <span>Curiosity</span><i></i><span>Connection</span><i></i><span>Community</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DREAM CHESTS (SIGNATURE INTERACTIVE) ================= -->
+  <section class="chests-section" id="chests">
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-center">The Dream Chest™</p>
+      <h2 class="h2 h2-center">11 chests. 11 paths. One life‑changing night.</h2>
+      <p class="lead lead-center">Every member submits a Dream Card to a Dream Chest. Tap a chest below to see what could be waiting inside tonight.</p>
+
+      <div class="chest-grid" id="chestGrid"><!-- injected by JS --></div>
+
+      <div class="chest-status" id="chestStatus">
+        <span id="chestCount">0</span> / 11 dreams opened tonight
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIP / DREAM CARDS STRIP ================= -->
+  <section class="vip-strip" id="vipstrip">
+    <img src="assets/vip-checkin.jpg" alt="Guests checking in and submitting Dream Cards at the UREYZ VIP entrance" loading="lazy">
+    <div class="vip-strip-copy">
+      <p class="eyebrow">What's Your Dream?</p>
+      <h3>Health · Wealth · Love · Relationships · Travel · Education · Business · Giving Back · Lifestyle · Creativity · Legacy</h3>
+    </div>
+  </section>
+
+  <!-- ================= MEMBERSHIP TIERS ================= -->
+  <section class="tiers" id="tiers">
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-center">Membership Ecosystem</p>
+      <h2 class="h2 h2-center">Multiple tiers. One connected community.</h2>
+
+      <div class="tier-grid">
+        <article class="tier-card tier-explorer">
+          <div class="tier-icon">◈</div>
+          <span class="tier-rank">01</span>
+          <h3>Guest Explorer</h3>
+          <ul>
+            <li>Explore member profiles</li>
+            <li>Vote on the Showcase</li>
+            <li>Limited messaging</li>
+            <li>Event access</li>
+            <li>Upgrade anytime</li>
+          </ul>
+        </article>
+
+        <article class="tier-card tier-vip">
+          <div class="tier-badge">Most Popular</div>
+          <div class="tier-icon">♛</div>
+          <span class="tier-rank">02</span>
+          <h3>VIP</h3>
+          <ul>
+            <li>Unlimited messaging</li>
+            <li>Unlock The Reveal</li>
+            <li>Event discounts</li>
+            <li>Priority access</li>
+            <li>VIP experiences</li>
+          </ul>
+        </article>
+
+        <article class="tier-card tier-elite">
+          <div class="tier-icon">♚</div>
+          <span class="tier-rank">03</span>
+          <h3>VIP Elite</h3>
+          <ul>
+            <li>Everything in VIP</li>
+            <li>Exclusive after-parties</li>
+            <li>Premium seating</li>
+            <li>Elite experiences</li>
+            <li>Concierge access</li>
+          </ul>
+        </article>
+      </div>
+      <p class="tiers-tag">MORE ACCESS. MORE CONNECTIONS. MORE EXPERIENCES.</p>
+    </div>
+  </section>
+
+  <!-- ================= JOURNEY ================= -->
+  <section class="journey" id="journey">
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-center">The UREYZ Journey</p>
+      <h2 class="h2 h2-center">Curiosity starts it. Community keeps it alive.</h2>
+
+      <div class="journey-track">
+        <div class="journey-step" data-step="1">
+          <div class="journey-ico">★</div>
+          <h4>Discover</h4>
+          <p>Create your profile &amp; explore.</p>
+        </div>
+        <div class="journey-step" data-step="2">
+          <div class="journey-ico">♥</div>
+          <h4>Engage</h4>
+          <p>Vote, play, interact.</p>
+        </div>
+        <div class="journey-step" data-step="3">
+          <div class="journey-ico">✦</div>
+          <h4>Experience</h4>
+          <p>Attend events. Live the moments.</p>
+        </div>
+        <div class="journey-step" data-step="4">
+          <div class="journey-ico">🏆</div>
+          <h4>Connect</h4>
+          <p>Meet people. Build real connections.</p>
+        </div>
+        <div class="journey-step" data-step="5">
+          <div class="journey-ico">♛</div>
+          <h4>Continue</h4>
+          <p>After-parties. The story continues.</p>
+        </div>
+      </div>
+
+      <!-- Bonus: Discovery Wheel mini-game -->
+      <div class="wheel-widget">
+        <div class="wheel-copy">
+          <p class="eyebrow">Discovery Wheel™</p>
+          <h3>Not sure where to start tonight?</h3>
+          <p>Give it a spin — let the wheel pick your opening move.</p>
+          <button class="btn btn-gold" id="spinBtn">Spin the Wheel</button>
+          <p class="wheel-result" id="wheelResult" aria-live="polite">&nbsp;</p>
+        </div>
+        <div class="wheel-visual">
+          <div class="wheel-pointer"></div>
+          <div class="wheel-disc" id="wheelDisc"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section class="gallery" id="gallery">
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-center">Inside UREYZ</p>
+      <h2 class="h2 h2-center">Most lasting relationships begin with a shared experience.</h2>
+    </div>
+    <div class="gallery-strip">
+      <img src="assets/lifestyle-ad.jpg" alt="UREYZ members at a rooftop city event" loading="lazy">
+      <img src="assets/showcase-plaques.jpg" alt="Community members recognized on the Showcase stage" loading="lazy">
+      <img src="assets/sunset-crowd.jpg" alt="Sunset skyline concert crowd at a UREYZ event" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ================= WHY UREYZ WINS ================= -->
+  <section class="why" id="why">
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-center">Why UREYZ Wins</p>
+      <div class="why-grid">
+        <div class="why-card"><span class="why-ico">◆</span><h4>First-of-its-kind ecosystem</h4><p>No one else combines dating, entertainment, and community this way.</p></div>
+        <div class="why-card"><span class="why-ico">◇</span><h4>Diversified revenue</h4><p>Memberships, events, merch, sponsorships, licensing — recurring and scalable.</p></div>
+        <div class="why-card"><span class="why-ico">◆</span><h4>Real network effect</h4><p>The more members join, the more valuable every room becomes.</p></div>
+        <div class="why-card"><span class="why-ico">◇</span><h4>Higher-quality connections</h4><p>Built on curiosity, shared experience, and real-world interaction.</p></div>
+        <div class="why-card"><span class="why-ico">◆</span><h4>Scalable, repeatable model</h4><p>One brand, licensed market by market — proven before it multiplies.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="final-cta" id="join">
+    <div class="final-cta-bg"></div>
+    <div class="section-inner final-cta-inner">
+      <img src="assets/shield.png" alt="" class="final-mark">
+      <h2 class="h2 h2-center">Your dream starts here.</h2>
+      <p class="lead lead-center">One membership. Every city. Install UREYZ and find out what's in your chest.</p>
+      <div class="hero-cta hero-cta-center">
+        <button class="btn btn-gold btn-lg" id="finalInstallBtn"><span>Install the App</span></button>
+        <a href="#chests" class="btn btn-outline btn-lg"><span>Explore the Chests</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="section-inner footer-grid">
+    <div class="footer-brand">
+      <img src="assets/shield.png" alt="UREYZ">
+      <span>UREYZ<sup>™</sup></span>
+      <p>Discover the Rest…</p>
+    </div>
+    <div class="footer-links">
+      <a href="#ecosystem">Ecosystem</a>
+      <a href="#chests">Dream Chests</a>
+      <a href="#tiers">Membership</a>
+      <a href="#journey">Journey</a>
+    </div>
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="Instagram">◎</a>
+      <a href="#" aria-label="TikTok">♪</a>
+      <a href="#" aria-label="YouTube">▶</a>
+    </div>
+  </div>
+  <p class="footer-fine">© 2026 UREYZ. Concept &amp; brand assets from the UREYZ Investment Prospectus v3.1. Built as a demo PWA.</p>
+</footer>
+
+<!-- ================= APP TAB BAR (mobile, installed-app feel) ================= -->
+<nav class="tabbar" id="tabbar">
+  <a href="#top" class="tab active" data-target="top"><span class="tab-ico">⌂</span>Home</a>
+  <a href="#chests" class="tab" data-target="chests"><span class="tab-ico">▣</span>Chests</a>
+  <a href="#tiers" class="tab" data-target="tiers"><span class="tab-ico">♛</span>Tiers</a>
+  <a href="#journey" class="tab" data-target="journey"><span class="tab-ico">➤</span>Journey</a>
+  <a href="#join" class="tab" data-target="join"><span class="tab-ico">✦</span>Join</a>
+</nav>
+
+<!-- toast for install / chest events -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
