@@ -38,6 +38,14 @@ Once hosted on HTTPS:
 - **Android/Chrome/Edge/desktop:** an "Install App" button appears automatically (top nav, hero, and footer). Tapping it triggers the native install prompt.
 - **iOS Safari:** Safari doesn't support the automatic prompt — use Share → "Add to Home Screen." The app already ships the right icons and meta tags for this.
 
+## What's new — social & app polish pass
+
+- **The Feed** (`#feed`) — a Stories row (tap an avatar ring) plus a reaction feed of member posts (tap ♥ to react, count updates live), styled after modern social-app patterns.
+- **Redesigned mobile drawer** — profile header, icon-bubble menu rows, soft gradient blob, dedicated close button + tap-outside-to-close scrim.
+- **Tonight's Highlight** — a bold gradient quote card with an animated progress bar and share row, inside the Journey section.
+- **Product-card polish** — star ratings and status chips ("LIVE", "VOTE NOW", "AFTER-PARTY") on the Act cards, and member-count/rating lines on the membership tier cards.
+- **Floating ambient blobs** — soft gold/purple glows drifting in the hero and final CTA backgrounds for a more premium, dimensional feel.
+
 ## Customize
 
 - **Brand colors / fonts:** all defined as CSS custom properties at the top of `style.css` under `:root`.

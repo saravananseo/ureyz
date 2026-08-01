@@ -27,16 +27,28 @@
   /* ---------- Mobile drawer ---------- */
   var hamburger = document.getElementById('hamburger');
   var drawer = document.getElementById('drawer');
+  var drawerScrim = document.getElementById('drawerScrim');
+  var drawerClose = document.getElementById('drawerClose');
+
+  function openDrawer(){
+    drawer.classList.add('open');
+    drawerScrim.classList.add('show');
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+  }
+  function closeDrawer(){
+    drawer.classList.remove('open');
+    drawerScrim.classList.remove('show');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
   hamburger.addEventListener('click', function(){
-    var open = drawer.classList.toggle('open');
-    hamburger.classList.toggle('open', open);
-    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (drawer.classList.contains('open')) closeDrawer(); else openDrawer();
   });
+  drawerScrim.addEventListener('click', closeDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
   drawer.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      drawer.classList.remove('open');
-      hamburger.classList.remove('open');
-    });
+    a.addEventListener('click', closeDrawer);
   });
 
   /* ---------- Bottom tab bar active state ---------- */
@@ -54,13 +66,6 @@
   }
 
   /* ---------- Scroll reveal ---------- */
-  var revealTargets = document.querySelectorAll(
-    '.shift-copy, .shift-visual, .act-card, .tier-card, .why-card, .journey-step, .wheel-widget, .vip-strip-copy, .gallery-strip img, .category .orbit-wrap, .category-tag, .final-mark'
-  );
-  revealTargets.forEach(function(el, i){
-    el.classList.add('reveal');
-    el.style.transitionDelay = (Math.min(i%6,6) * 70) + 'ms';
-  });
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if (entry.isIntersecting){
@@ -69,7 +74,17 @@
       }
     });
   }, { threshold:0.15 });
-  revealTargets.forEach(function(el){ io.observe(el); });
+
+  function observeReveal(el, i){
+    el.classList.add('reveal');
+    el.style.transitionDelay = (Math.min((i||0)%6,6) * 70) + 'ms';
+    io.observe(el);
+  }
+
+  var revealTargets = document.querySelectorAll(
+    '.shift-copy, .shift-visual, .act-card, .tier-card, .why-card, .journey-step, .wheel-widget, .vip-strip-copy, .gallery-strip img, .category .orbit-wrap, .category-tag, .final-mark, .highlight-card'
+  );
+  revealTargets.forEach(observeReveal);
 
   /* ---------- Act progress bar ---------- */
   var actsSection = document.getElementById('acts');
@@ -174,6 +189,84 @@
 
     chestGrid.appendChild(chest);
   });
+
+  /* ---------- Stories row ---------- */
+  var STORIES = [
+    { initials:'AR', name:'Ava R.',  variant:1 },
+    { initials:'JM', name:'Jae M.',  variant:2 },
+    { initials:'LK', name:'Luca K.', variant:1 },
+    { initials:'ND', name:'Nia D.',  variant:2 },
+    { initials:'TB', name:'Theo B.', variant:1 },
+    { initials:'SC', name:'Sara C.', variant:2 },
+    { initials:'MV', name:'Marco V.',variant:1 }
+  ];
+  var storiesRow = document.getElementById('storiesRow');
+  STORIES.forEach(function(s){
+    var el = document.createElement('div');
+    el.className = 'story';
+    el.innerHTML =
+      '<div class="story-ring"><div class="avatar-fill avatar-v' + s.variant + '">' + s.initials + '</div></div>' +
+      '<span>' + s.name + '</span>';
+    el.querySelector('.story-ring').addEventListener('click', function(){
+      showToast(s.name + '\u2019s story \u2014 coming soon');
+    });
+    storiesRow.appendChild(el);
+  });
+
+  /* ---------- Feed cards ---------- */
+  var FEED = [
+    { initials:'AR', name:'Ava R.', variant:1, time:'12m ago', img:'assets/dream-chests.jpg',
+      caption:'Just opened Chest No. 4 — Travel. Already planning a trip with someone I met an hour ago. This is unreal.', likes:214 },
+    { initials:'MV', name:'Marco V.', variant:2, time:'38m ago', img:'assets/showcase-plaques.jpg',
+      caption:'Community voted us onto the Showcase stage tonight. Still shaking. Thank you UREYZ fam.', likes:389 },
+    { initials:'SC', name:'Sara C.', variant:1, time:'1h ago', img:'assets/sunset-crowd.jpg',
+      caption:'After-party wristbands hit different when the sunset looks like this. Continue the Discovery indeed.', likes:512 },
+    { initials:'ND', name:'Nia D.', variant:2, time:'2h ago', img:'assets/vip-checkin.jpg',
+      caption:'First time at a UREYZ night and the VIP check-in alone had me hooked. What\u2019s your dream?', likes:167 }
+  ];
+  var feedGrid = document.getElementById('feedGrid');
+  FEED.forEach(function(p){
+    var card = document.createElement('article');
+    card.className = 'feed-card';
+    card.innerHTML =
+      '<div class="feed-head">' +
+        '<div class="avatar-fill feed-avatar avatar-v' + p.variant + '">' + p.initials + '</div>' +
+        '<div class="feed-who"><span class="feed-name">' + p.name + '</span><span class="feed-time">' + p.time + '</span></div>' +
+      '</div>' +
+      '<div class="feed-media"><img src="' + p.img + '" alt="Photo shared by ' + p.name + ' at a UREYZ event" loading="lazy"></div>' +
+      '<p class="feed-caption">' + p.caption + '</p>' +
+      '<div class="feed-actions">' +
+        '<button type="button" class="feed-react" data-count="' + p.likes + '"><span class="ico">♥</span><span class="feed-count">' + p.likes + '</span></button>' +
+        '<span class="feed-share">Share</span>' +
+      '</div>';
+
+    var reactBtn = card.querySelector('.feed-react');
+    var countEl = card.querySelector('.feed-count');
+    reactBtn.addEventListener('click', function(){
+      var active = reactBtn.classList.toggle('active');
+      var base = parseInt(reactBtn.dataset.count, 10);
+      countEl.textContent = active ? base + 1 : base;
+      reactBtn.querySelector('.ico').textContent = active ? '💜' : '♥';
+    });
+
+    feedGrid.appendChild(card);
+    observeReveal(card, feedGrid.children.length);
+  });
+
+  /* ---------- Highlight card progress reveal ---------- */
+  var highlightCard = document.querySelector('.highlight-card');
+  if (highlightCard){
+    var hIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          var fill = highlightCard.querySelector('.highlight-progress-fill');
+          setTimeout(function(){ fill.style.width = '74%'; }, 200);
+          hIo.unobserve(highlightCard);
+        }
+      });
+    }, { threshold:0.4 });
+    hIo.observe(highlightCard);
+  }
 
   /* ---------- Discovery Wheel ---------- */
   var WHEEL_OUTCOMES = [

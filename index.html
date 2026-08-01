@@ -41,6 +41,7 @@
   <nav class="topnav-links">
     <a href="#ecosystem">Ecosystem</a>
     <a href="#chests">Dream Chests</a>
+    <a href="#feed">The Feed</a>
     <a href="#tiers">Membership</a>
     <a href="#journey">Journey</a>
     <a href="#gallery">Inside UREYZ</a>
@@ -55,13 +56,24 @@
 
 <!-- mobile drawer -->
 <div class="drawer" id="drawer">
-  <a href="#ecosystem">Ecosystem</a>
-  <a href="#chests">Dream Chests</a>
-  <a href="#tiers">Membership</a>
-  <a href="#journey">Journey</a>
-  <a href="#gallery">Inside UREYZ</a>
-  <button class="btn btn-gold" id="drawerInstall">Install App</button>
+  <div class="drawer-blob"></div>
+  <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+  <div class="drawer-profile">
+    <span class="shield-ico drawer-avatar" role="img" aria-label="UREYZ"></span>
+    <h3>Discover the Rest</h3>
+    <p>@ureyz&nbsp;·&nbsp;Guest Explorer</p>
+  </div>
+  <nav class="drawer-menu">
+    <a href="#ecosystem"><span class="d-ico d-ico-1">✦</span>Ecosystem</a>
+    <a href="#chests"><span class="d-ico d-ico-2">▣</span>Dream Chests</a>
+    <a href="#feed"><span class="d-ico d-ico-3">♥</span>The Feed</a>
+    <a href="#tiers"><span class="d-ico d-ico-4">♛</span>Membership</a>
+    <a href="#journey"><span class="d-ico d-ico-5">➤</span>Journey</a>
+    <a href="#gallery"><span class="d-ico d-ico-1">◎</span>Inside UREYZ</a>
+  </nav>
+  <button class="btn btn-gold drawer-cta" id="drawerInstall">Download the App</button>
 </div>
+<div class="drawer-scrim" id="drawerScrim"></div>
 
 <main id="top">
 
@@ -71,6 +83,8 @@
       <img src="assets/hero-crowd.jpg" alt="Crowd at a UREYZ live showcase event" loading="eager">
       <div class="hero-scrim"></div>
       <div class="hero-vignette"></div>
+      <div class="blob blob-gold blob-a" aria-hidden="true"></div>
+      <div class="blob blob-purple blob-b" aria-hidden="true"></div>
     </div>
 
     <div class="hero-content">
@@ -163,29 +177,41 @@
         <div class="act-progress"><div class="act-progress-fill" id="actProgress"></div></div>
 
         <article class="act-card" data-act="1">
-          <div class="act-media"><img src="assets/showcase-panel.jpg" alt="Hosts and community members on the UREYZ Showcase stage" loading="lazy"></div>
+          <div class="act-media">
+            <span class="act-chip">VOTE NOW</span>
+            <img src="assets/showcase-panel.jpg" alt="Hosts and community members on the UREYZ Showcase stage" loading="lazy">
+          </div>
           <div class="act-body">
             <span class="act-num">I</span>
             <h3>The UREYZ Showcase</h3>
             <p>The community selects the talent. Members vote online. Winning acts perform live, in front of the room they'll spend the night with.</p>
+            <div class="act-rating"><span class="stars">★★★★★</span> 4.9 <em>(2,340 votes)</em></div>
           </div>
         </article>
 
         <article class="act-card" data-act="2">
-          <div class="act-media"><img src="assets/dream-chests.jpg" alt="Guests submitting Dream Cards at the Dream Chest wall" loading="lazy"></div>
+          <div class="act-media">
+            <span class="act-chip act-chip-purple">LIVE</span>
+            <img src="assets/dream-chests.jpg" alt="Guests submitting Dream Cards at the Dream Chest wall" loading="lazy">
+          </div>
           <div class="act-body">
             <span class="act-num">II</span>
             <h3>The Discovery Experience</h3>
             <p>Dream Chest. Discovery Challenge. The Reveal. Audience participation turns strangers into stories — this is where real connection starts.</p>
+            <div class="act-rating"><span class="stars">★★★★★</span> 4.8 <em>(1,905 votes)</em></div>
           </div>
         </article>
 
         <article class="act-card" data-act="3">
-          <div class="act-media"><img src="assets/sunset-crowd.jpg" alt="Crowd at the UREYZ after-party" loading="lazy"></div>
+          <div class="act-media">
+            <span class="act-chip act-chip-gold">AFTER-PARTY</span>
+            <img src="assets/sunset-crowd.jpg" alt="Crowd at the UREYZ after-party" loading="lazy">
+          </div>
           <div class="act-body">
             <span class="act-num">III</span>
             <h3>Continue the Discovery</h3>
             <p>Exclusive after-party. UREYZ wristbands. The night doesn't end when the lights come up — it becomes the beginning.</p>
+            <div class="act-rating"><span class="stars">★★★★★</span> 5.0 <em>(3,112 votes)</em></div>
           </div>
         </article>
       </div>
@@ -211,6 +237,27 @@
     </div>
   </section>
 
+  <!-- ================= THE FEED (social / stories / reactions) ================= -->
+  <section class="feed-section" id="feed">
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-center">Live From The Floor</p>
+      <h2 class="h2 h2-center">The whole room, posting in real time.</h2>
+      <p class="lead lead-center">Stories from tonight's Showcase, Reveal, and after-party — reacted to by the people who were there.</p>
+
+      <!-- Stories row -->
+      <div class="stories-row" id="storiesRow">
+        <div class="story story-add">
+          <div class="story-ring story-ring-add"><span>+</span></div>
+          <span>Your Story</span>
+        </div>
+        <!-- injected by JS -->
+      </div>
+
+      <!-- Feed cards -->
+      <div class="feed-grid" id="feedGrid"><!-- injected by JS --></div>
+    </div>
+  </section>
+
   <!-- ================= VIP / DREAM CARDS STRIP ================= -->
   <section class="vip-strip" id="vipstrip">
     <img src="assets/vip-checkin.jpg" alt="Guests checking in and submitting Dream Cards at the UREYZ VIP entrance" loading="lazy">
@@ -231,6 +278,7 @@
           <div class="tier-icon">◈</div>
           <span class="tier-rank">01</span>
           <h3>Guest Explorer</h3>
+          <div class="tier-social"><span class="stars">★★★★☆</span> 4.6 <em>· 8,200 members</em></div>
           <ul>
             <li>Explore member profiles</li>
             <li>Vote on the Showcase</li>
@@ -245,6 +293,7 @@
           <div class="tier-icon">♛</div>
           <span class="tier-rank">02</span>
           <h3>VIP</h3>
+          <div class="tier-social"><span class="stars">★★★★★</span> 4.9 <em>· 12,400 members</em></div>
           <ul>
             <li>Unlimited messaging</li>
             <li>Unlock The Reveal</li>
@@ -258,6 +307,7 @@
           <div class="tier-icon">♚</div>
           <span class="tier-rank">03</span>
           <h3>VIP Elite</h3>
+          <div class="tier-social"><span class="stars">★★★★★</span> 5.0 <em>· 3,050 members</em></div>
           <ul>
             <li>Everything in VIP</li>
             <li>Exclusive after-parties</li>
@@ -319,6 +369,24 @@
           <div class="wheel-disc" id="wheelDisc"></div>
         </div>
       </div>
+
+      <!-- Tonight's Highlight — bold quote moment -->
+      <div class="highlight-card">
+        <div class="highlight-quote-mark">&ldquo;</div>
+        <p class="highlight-quote">It's 1AM, I just opened Dream Chest No. 7, and I'm still on the dance floor with the person who opened it too.</p>
+        <div class="highlight-meta">
+          <span class="highlight-progress"><span class="highlight-progress-fill"></span></span>
+          <span class="highlight-time">TONIGHT · UREYZ MIAMI</span>
+        </div>
+        <div class="highlight-foot">
+          <div class="highlight-social">
+            <a href="#" aria-label="Share to Facebook">f</a>
+            <a href="#" aria-label="Share to X">𝕏</a>
+            <a href="#" aria-label="Share to Reddit">◉</a>
+          </div>
+          <span class="highlight-credit">A member moment, shared live</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -352,6 +420,8 @@
   <!-- ================= FINAL CTA ================= -->
   <section class="final-cta" id="join">
     <div class="final-cta-bg"></div>
+    <div class="blob blob-purple blob-c" aria-hidden="true"></div>
+    <div class="blob blob-gold blob-d" aria-hidden="true"></div>
     <div class="section-inner final-cta-inner">
       <img src="assets/shield.png" alt="" class="final-mark">
       <h2 class="h2 h2-center">Your dream starts here.</h2>
