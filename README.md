@@ -2,14 +2,21 @@
 
 A fully installable Progressive Web App built from the UREYZ brand kit and investment prospectus concept boards. Community-powered interactive social discovery entertainment — dating, live entertainment, and nightlife, gamified.
 
+## Two versions — use the right one for what you're doing
+
+**`standalone.html`** — everything (HTML, CSS, JS, every photo, the logo) baked into one file with images embedded directly as data. **Double-click it and it works, instantly, with zero setup.** No server, no folder structure to preserve, nothing to break. This is the one to open first, preview locally, or send to someone to look at.
+
+**`index.html` + `style.css` + `app.js` + `assets/` + `icons/` + `manifest.json` + `sw.js`** — the real hosting version. Use this when you deploy to Netlify/Vercel/GitHub Pages/your server, because it's the one that installs as an app and works offline (that requires the separate manifest + service worker + icon files, which only function over HTTPS or localhost — never over `file://`). **Keep the folder structure intact when you upload it** — if `index.html` gets separated from its `assets/`, `icons/` folders, its images will break, which is almost certainly what happened before.
+
 ## What's inside
 
+- `standalone.html` — single-file version, works anywhere, no server needed
 - `index.html` — the full one-page app (hero, ecosystem, three-act experience, Dream Chests, membership tiers, journey, gallery, final CTA)
 - `style.css` — design system (brand colors, Montserrat + Orbitron type, animations)
 - `app.js` — interactivity: 11 tappable Dream Chests, Discovery Wheel spinner, scroll reveals, PWA install prompt, bottom app tab bar
-- `manifest.json` + `sw.js` — makes it installable and available offline
+- `manifest.json` + `sw.js` — makes the hosted version installable and available offline
 - `icons/` — full PWA icon set generated from the UREYZ shield mark (72–512px + maskable)
-- `assets/` — optimized photography from the brand deck
+- `assets/` — optimized photography from the brand deck (only used by `index.html`, not needed for `standalone.html`)
 
 ## Run it locally
 
