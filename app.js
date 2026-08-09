@@ -5,6 +5,45 @@
 (function(){
   'use strict';
 
+  /* ---------- Hero image slider ---------- */
+  var heroSection = document.getElementById('hero');
+  var heroSlides = Array.prototype.slice.call(document.querySelectorAll('.hero-slide'));
+  var heroDotsWrap = document.getElementById('heroDots');
+  var heroDots = [];
+  var heroIndex = 0;
+  var heroTimer = null;
+
+  heroSlides.forEach(function(s, i){
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Show hero slide ' + (i+1));
+    dot.addEventListener('click', function(){ goToSlide(i); restartHeroTimer(); });
+    heroDotsWrap.appendChild(dot);
+    heroDots.push(dot);
+  });
+
+  function applyBannerState(){
+    var isBanner = heroSlides[heroIndex] && heroSlides[heroIndex].dataset.banner === 'true';
+    heroSection.classList.toggle('banner-slide', !!isBanner);
+  }
+  function goToSlide(i){
+    if (!heroSlides.length) return;
+    heroSlides[heroIndex].classList.remove('active');
+    heroDots[heroIndex].classList.remove('active');
+    heroIndex = i;
+    heroSlides[heroIndex].classList.add('active');
+    heroDots[heroIndex].classList.add('active');
+    applyBannerState();
+  }
+  function nextSlide(){ goToSlide((heroIndex + 1) % heroSlides.length); }
+  function restartHeroTimer(){
+    clearInterval(heroTimer);
+    heroTimer = setInterval(nextSlide, 5500);
+  }
+  applyBannerState();
+  if (heroSlides.length > 1) restartHeroTimer();
+
   /* ---------- Boot loader ---------- */
   window.addEventListener('load', function(){
     var boot = document.getElementById('boot');
@@ -82,7 +121,7 @@
   }
 
   var revealTargets = document.querySelectorAll(
-    '.shift-copy, .shift-visual, .act-card, .tier-card, .why-card, .journey-step, .wheel-widget, .vip-strip-copy, .gallery-strip img, .category .orbit-wrap, .category-tag, .final-mark, .highlight-card'
+    '.shift-copy, .shift-visual, .act-card, .tier-card, .why-card, .journey-step, .wheel-widget, .vip-strip-copy, .gallery-strip img, .category .orbit-wrap, .category-tag, .final-mark, .highlight-card, .brand-lockup, .brand-intro-inner .eyebrow-center, .brand-intro-h, .brand-intro-tag'
   );
   revealTargets.forEach(observeReveal);
 
@@ -218,11 +257,11 @@
     { initials:'AR', name:'Ava R.', variant:1, time:'12m ago', img:'assets/dream-chests.jpg',
       caption:'Just opened Chest No. 4 — Travel. Already planning a trip with someone I met an hour ago. This is unreal.', likes:214 },
     { initials:'MV', name:'Marco V.', variant:2, time:'38m ago', img:'assets/showcase-plaques.jpg',
-      caption:'Community voted us onto the Showcase stage tonight. Still shaking. Thank you UREYZ fam.', likes:389 },
+      caption:'Spun the Discovery Wheel and walked away with a private yacht cruise for two. UREYZ really said "ultimate date experience" and meant it.', likes:389 },
     { initials:'SC', name:'Sara C.', variant:1, time:'1h ago', img:'assets/sunset-crowd.jpg',
       caption:'After-party wristbands hit different when the sunset looks like this. Continue the Discovery indeed.', likes:512 },
     { initials:'ND', name:'Nia D.', variant:2, time:'2h ago', img:'assets/vip-checkin.jpg',
-      caption:'First time at a UREYZ night and the VIP check-in alone had me hooked. What\u2019s your dream?', likes:167 }
+      caption:'First time at a UREYZ night and the Red Room alone had me hooked. Understated luxury, done right.', likes:167 }
   ];
   var feedGrid = document.getElementById('feedGrid');
   FEED.forEach(function(p){

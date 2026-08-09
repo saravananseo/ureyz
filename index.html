@@ -44,7 +44,7 @@
     <a href="#feed">The Feed</a>
     <a href="#tiers">Membership</a>
     <a href="#journey">Journey</a>
-    <a href="#gallery">Inside UREYZ</a>
+    <a href="#brand-intro">Inside UREYZ</a>
   </nav>
   <button class="btn btn-ghost install-btn" id="installBtn" hidden>
     <span>Install App</span>
@@ -69,7 +69,7 @@
     <a href="#feed"><span class="d-ico d-ico-3">♥</span>The Feed</a>
     <a href="#tiers"><span class="d-ico d-ico-4">♛</span>Membership</a>
     <a href="#journey"><span class="d-ico d-ico-5">➤</span>Journey</a>
-    <a href="#gallery"><span class="d-ico d-ico-1">◎</span>Inside UREYZ</a>
+    <a href="#brand-intro"><span class="d-ico d-ico-1">◎</span>Inside UREYZ</a>
   </nav>
   <button class="btn btn-gold drawer-cta" id="drawerInstall">Download the App</button>
 </div>
@@ -79,8 +79,10 @@
 
   <!-- ================= HERO ================= -->
   <section class="hero" id="hero">
-    <div class="hero-bg">
-      <img src="assets/hero-crowd.jpg" alt="Crowd at a UREYZ live showcase event" loading="eager">
+    <div class="hero-bg" id="heroBg">
+      <div class="hero-slide active" style="background-image:url('assets/lifestyle-ad.jpg')" role="img" aria-label="UREYZ — most lasting relationships begin with a shared, fun, interactive entertainment experience" data-banner="true"></div>
+      <div class="hero-slide" style="background-image:url('assets/hero-crowd.jpg')" role="img" aria-label="UREYZ Showcase stage with crowd and connection-type legend" data-banner="true"></div>
+      <div class="hero-slide" style="background-image:url('assets/sunset-crowd.jpg')" role="img" aria-label="Sunset skyline concert crowd at a UREYZ event"></div>
       <div class="hero-scrim"></div>
       <div class="hero-vignette"></div>
       <div class="blob blob-gold blob-a" aria-hidden="true"></div>
@@ -88,27 +90,33 @@
     </div>
 
     <div class="hero-content">
-      <p class="eyebrow eyebrow-hero"><span class="dot"></span>Community-Powered Interactive Social Discovery</p>
-      <h1 class="hero-title">
-        <span class="line">DISCOVER</span>
-        <span class="line line-accent">THE REST<span class="ellipsis">…</span></span>
-      </h1>
-      <p class="hero-sub">Twenty years of swiping got people good at meeting online — and worse at discovering each other in real life. UREYZ turns curiosity into a live, three‑act experience where the whole room plays.</p>
-      <div class="hero-cta">
-        <a href="#chests" class="btn btn-gold btn-lg">
-          <span>Open a Dream Chest</span>
-        </a>
-        <button class="btn btn-outline btn-lg" id="heroInstallBtn">
-          <span>Install the App</span>
-        </button>
+      <div class="hero-headline-group">
+        <p class="eyebrow eyebrow-hero"><span class="dot"></span>Community-Powered Interactive Social Discovery</p>
+        <h1 class="hero-title">
+          <span class="line">DISCOVER</span>
+          <span class="line line-accent">THE REST<span class="ellipsis">…</span></span>
+        </h1>
+        <p class="hero-sub">Twenty years of swiping got people good at meeting online — and worse at discovering each other in real life. UREYZ turns curiosity into a live, three‑act experience where the whole room plays.</p>
       </div>
+      <div class="hero-action-panel">
+        <div class="hero-cta">
+          <a href="#chests" class="btn btn-gold btn-lg">
+            <span>Open a Dream Chest</span>
+          </a>
+          <button class="btn btn-outline btn-lg" id="heroInstallBtn">
+            <span>Install the App</span>
+          </button>
+        </div>
 
-      <div class="hero-stats">
-        <div class="hstat"><span class="hstat-num" data-count="11">0</span><span class="hstat-label">Dream Chests</span></div>
-        <div class="hstat"><span class="hstat-num" data-count="5">0</span><span class="hstat-label">Industries Converged</span></div>
-        <div class="hstat"><span class="hstat-num" data-count="40">0</span><span class="hstat-label">Cities on the Roadmap</span></div>
+        <div class="hero-stats">
+          <div class="hstat"><span class="hstat-num" data-count="11">0</span><span class="hstat-label">Dream Chests</span></div>
+          <div class="hstat"><span class="hstat-num" data-count="5">0</span><span class="hstat-label">Industries Converged</span></div>
+          <div class="hstat"><span class="hstat-num" data-count="40">0</span><span class="hstat-label">Cities on the Roadmap</span></div>
+        </div>
       </div>
     </div>
+
+    <div class="hero-dots" id="heroDots"></div>
 
     <div class="scroll-cue" aria-hidden="true">
       <span>Scroll to enter</span>
@@ -260,7 +268,7 @@
 
   <!-- ================= VIP / DREAM CARDS STRIP ================= -->
   <section class="vip-strip" id="vipstrip">
-    <img src="assets/vip-checkin.jpg" alt="Guests checking in and submitting Dream Cards at the UREYZ VIP entrance" loading="lazy">
+    <img src="assets/vip-checkin.jpg" alt="Guests relaxing in the UREYZ Red Room VIP lounge, just off the stage entrance" loading="lazy">
     <div class="vip-strip-copy">
       <p class="eyebrow">What's Your Dream?</p>
       <h3>Health · Wealth · Love · Relationships · Travel · Education · Business · Giving Back · Lifestyle · Creativity · Legacy</h3>
@@ -390,19 +398,6 @@
     </div>
   </section>
 
-  <!-- ================= GALLERY ================= -->
-  <section class="gallery" id="gallery">
-    <div class="section-inner">
-      <p class="eyebrow eyebrow-center">Inside UREYZ</p>
-      <h2 class="h2 h2-center">Most lasting relationships begin with a shared experience.</h2>
-    </div>
-    <div class="gallery-strip">
-      <img src="assets/lifestyle-ad.jpg" alt="UREYZ members at a rooftop city event" loading="lazy">
-      <img src="assets/showcase-plaques.jpg" alt="Community members recognized on the Showcase stage" loading="lazy">
-      <img src="assets/sunset-crowd.jpg" alt="Sunset skyline concert crowd at a UREYZ event" loading="lazy">
-    </div>
-  </section>
-
   <!-- ================= WHY UREYZ WINS ================= -->
   <section class="why" id="why">
     <div class="section-inner">
@@ -415,6 +410,21 @@
         <div class="why-card"><span class="why-ico">◆</span><h4>Scalable, repeatable model</h4><p>One brand, licensed market by market — proven before it multiplies.</p></div>
       </div>
     </div>
+  </section>
+
+  <!-- ================= BRAND INTRO (moved above final CTA) ================= -->
+  <section class="brand-intro" id="brand-intro">
+    <div class="section-inner brand-intro-inner">
+      <img src="assets/logo-lockup.png" alt="UREYZ — Discover. Connect. Elevate." class="brand-lockup">
+      <p class="eyebrow eyebrow-center">Proud Legacy</p>
+      <p class="h2 h2-center brand-intro-h">Most lasting relationships begin<br>with a shared experience.</p>
+    </div>
+    <div class="gallery-strip brand-intro-strip">
+      <img src="assets/lifestyle-ad.jpg" alt="UREYZ members at a rooftop city event" loading="lazy">
+      <img src="assets/showcase-panel.jpg" alt="Hosts and community members on the UREYZ Showcase stage" loading="lazy">
+      <img src="assets/sunset-crowd.jpg" alt="Sunset skyline concert crowd at a UREYZ event" loading="lazy">
+    </div>
+    <p class="brand-intro-tag">DISCOVER THE REST…</p>
   </section>
 
   <!-- ================= FINAL CTA ================= -->
