@@ -254,13 +254,13 @@
 
   /* ---------- Feed cards ---------- */
   var FEED = [
-    { initials:'AR', name:'Ava R.', variant:1, time:'12m ago', img:'assets/dream-chests.jpg',
+    { initials:'AR', name:'Ava R.', variant:1, time:'12m ago', img:'assets/dream-chests.jpg?v=2',
       caption:'Just opened Chest No. 4 — Travel. Already planning a trip with someone I met an hour ago. This is unreal.', likes:214 },
-    { initials:'MV', name:'Marco V.', variant:2, time:'38m ago', img:'assets/showcase-plaques.jpg',
+    { initials:'MV', name:'Marco V.', variant:2, time:'38m ago', img:'assets/showcase-plaques.jpg?v=2',
       caption:'Spun the Discovery Wheel and walked away with a private yacht cruise for two. UREYZ really said "ultimate date experience" and meant it.', likes:389 },
-    { initials:'SC', name:'Sara C.', variant:1, time:'1h ago', img:'assets/sunset-crowd.jpg',
+    { initials:'SC', name:'Sara C.', variant:1, time:'1h ago', img:'assets/sunset-crowd.jpg?v=2',
       caption:'After-party wristbands hit different when the sunset looks like this. Continue the Discovery indeed.', likes:512 },
-    { initials:'ND', name:'Nia D.', variant:2, time:'2h ago', img:'assets/vip-checkin.jpg',
+    { initials:'ND', name:'Nia D.', variant:2, time:'2h ago', img:'assets/vip-checkin.jpg?v=2',
       caption:'First time at a UREYZ night and the Red Room alone had me hooked. Understated luxury, done right.', likes:167 }
   ];
   var feedGrid = document.getElementById('feedGrid');
